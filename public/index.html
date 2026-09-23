@@ -74,7 +74,7 @@
                 <span class="inline-flex items-center justify-center px-[12px] py-[6px] rounded-full bg-[#F1EDFF] text-secondary text-[12px] font-[600] uppercase tracking-wider">Service Notice</span>
                 <h1 class="text-[64px] md:text-[80px] font-[400] leading-[1.1] tracking-[-4.8px] font-heading max-w-[800px]">This domain has been <span class="text-primary">retired</span>.</h1>
                 <p class="text-[18px] font-[500] leading-[28px] font-body text-text-muted max-w-[600px]">The domain <strong id="hero-domain-name" class="text-text-primary">...</strong> is no longer in active service and will not be renewed. Registration data is provided below for administrative transparency.</p>
-                <div class="flex gap-2xl mt-3xl"><a href="#rdap" class="inline-flex items-center justify-center h-[56px] px-[40px] rounded-full bg-text-primary text-surface border border-text-primary text-[14px] font-[500] hover:bg-primary-hover transition-colors duration-280 ease-[cubic-bezier(0.4,0,0.2,1)]">View Registry Data</a></div>
+                <div class="flex gap-2xl mt-3xl"><a href="#rdap" class="inline-flex items-center justify-center h-[56px] px-[40px] rounded-full bg-text-primary text-surface border border-border text-[14px] font-[500] hover:bg-primary-hover transition-colors duration-280 ease-[cubic-bezier(0.4,0,0.2,1)]">View Registry Data</a></div>
             </div>
         </section>
         <section id="status" class="py-section flex flex-col items-center">
@@ -89,13 +89,13 @@
                     <h5 class="text-[32px] font-[400] leading-[38.5px] tracking-[-1.92px] font-heading">Registration Output</h5>
                     <p class="text-[14px] font-[500] font-body text-text-muted">Live query results from authoritative RDAP servers.</p>
                 </div>
-                <div class="bg-surface border border-text-primary rounded-card shadow-xl p-[32px] flex flex-col gap-5xl">
+                <div class="bg-surface border border-border rounded-card shadow-xl p-[32px] flex flex-col gap-5xl">
                     <div class="flex flex-wrap items-center justify-between gap-2xl border-b border-surface-muted pb-[24px]">
                         <div>
                             <span class="text-[11.5px] font-[500] leading-[19.5px] tracking-[0.12px] uppercase text-text-muted">Handle</span>
                             <h3 id="rdap-handle" class="text-[28px] font-[400] leading-[28px] font-heading mt-2xs">Querying...</h3>
                         </div>
-                        <div class="flex gap-sm" id="rdap-status-container"><span class="inline-flex items-center justify-center px-[8px] py-[4px] rounded-full bg-surface text-text-primary border border-text-primary text-[11px] font-[500]">Loading State...</span></div>
+                        <div class="flex gap-sm" id="rdap-status-container"><span class="inline-flex items-center justify-center px-[8px] py-[4px] rounded-full bg-surface text-text-primary border border-border text-[11px] font-[500]">Loading State...</span></div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5xl">
                         <div class="flex flex-col gap-xs"><span class="text-[11.5px] font-[500] leading-[19.5px] tracking-[0.12px] uppercase text-text-muted">Registrar</span><p id="rdap-registrar" class="text-[18px] font-[500] leading-[28px] font-heading">...</p></div>
@@ -184,7 +184,7 @@
                 setT('rdap-handle', d.handle || 'Unknown');
 
                 const sc = el('rdap-status-container');
-                if (sc) { sc.innerHTML = ''; (d.status || []).forEach(s => { const b = document.createElement('span'); b.className = 'inline-flex items-center justify-center px-[8px] py-[4px] rounded-full bg-background text-text-primary border border-text-primary text-[11px] font-[500] capitalize'; b.innerText = s; sc.appendChild(b); }); }
+                if (sc) { sc.innerHTML = ''; (d.status || []).forEach(s => { const b = document.createElement('span'); b.className = 'inline-flex items-center justify-center px-[8px] py-[4px] rounded-full bg-background text-text-primary border border-border text-[11px] font-[500] capitalize'; b.innerText = s; sc.appendChild(b); }); }
                 setT('rdap-registrar', d.registrar || 'Unknown');
                 setT('rdap-dnssec', d.dnssec || 'Unsigned');
 
