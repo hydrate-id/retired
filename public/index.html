@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain Retired</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --color-background: #faf5f1;
+            --color-surface: #ffffff;
+            --color-surface-muted: #c8c4c1;
+            --color-text-primary: #000000;
+            --color-text-secondary: #0d061e;
+            --color-text-muted: #4b4a48;
+            --color-border: #ffffff;
+            --color-primary: #150079;
+            --color-secondary: #6e47ff;
+            --color-accent: #ffc1a1;
+            --color-primary-hover: #0e0052;
+            --color-danger: #fe8fa1;
+            --color-warning: #fff4a2;
+            --color-success: #54c423;
+            --color-info: #1264a3;
+            --font-body: 'Gellix', ui-sans-serif, system-ui, sans-serif;
+            --font-heading: 'UlmGrotesk', Gellix, ui-sans-serif, sans-serif;
+        }
+        .grad-1 { background: linear-gradient(180deg, var(--color-background), var(--color-surface)); }
+        .grad-2 { background: radial-gradient(circle, var(--color-background), #FFE0D0, var(--color-secondary), var(--color-primary), var(--color-primary)); }
+        .grad-3 { background: radial-gradient(circle, rgba(255, 187, 152, 0), rgba(255, 187, 152, 0.2), var(--color-primary), var(--color-secondary), #9E84FF); }
+        .grad-4 { background: linear-gradient(180deg, var(--color-surface), var(--color-background)); }
+        .grad-5 { background: radial-gradient(circle, #9E84FF, #8666FF, var(--color-secondary), #5835DE, #4224BC, #2B129B, var(--color-primary), rgba(255, 187, 152, 0.2), rgba(255, 187, 152, 0)); }
+        body { background-color: var(--color-background); color: var(--color-text-primary); font-family: var(--font-body); }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: 'var(--color-background)', surface: 'var(--color-surface)',
+                        'surface-muted': 'var(--color-surface-muted)', 'text-primary': 'var(--color-text-primary)',
+                        'text-secondary': 'var(--color-text-secondary)', 'text-muted': 'var(--color-text-muted)',
+                        border: 'var(--color-border)', primary: 'var(--color-primary)', secondary: 'var(--color-secondary)',
+                        accent: 'var(--color-accent)', 'primary-hover': 'var(--color-primary-hover)',
+                        danger: 'var(--color-danger)', warning: 'var(--color-warning)', success: 'var(--color-success)', info: 'var(--color-info)',
+                    },
+                    fontFamily: { body: ['Gellix','ui-sans-serif','system-ui','sans-serif'], heading: ['UlmGrotesk','Gellix','ui-sans-serif','sans-serif'] },
+                    spacing: { '3xs':'2px','2xs':'4px','xs':'6px','sm':'8px','md':'10px','lg':'12px','xl':'14px','2xl':'16px','3xl':'20px','4xl':'22px','5xl':'24px','section':'112px' },
+                    borderRadius: { 'xs':'2px','sm':'3px','md':'4px','lg':'7px','xl':'8px','2xl':'10px','3xl':'11px','full':'9999px','button':'14px','card':'26px' },
+                    boxShadow: { 'xs':'0px 0px 0px 0px rgba(0,0,0,0)','sm':'0px 0px 11px 0px rgba(46,30,107,0.04)','md':'0px 5px 10px 0px rgba(26,24,41,0.06)','lg':'0px 8px 24px 0px rgba(26,24,43,0.12)','xl':'0px 20px 48px 0px rgba(26,24,43,0.12)' }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+    <header class="h-[65px] w-full flex items-center justify-center px-[32px] bg-transparent text-text-primary shrink-0 relative z-10 border-b border-border">
+        <div class="max-w-[1280px] w-full flex justify-between items-center h-full">
+            <span class="text-[18px] font-[500] leading-[28px] font-heading" id="nav-domain-name">Retrieving domain...</span>
+            <nav class="hidden md:flex gap-5xl">
+                <a href="#status" class="text-[14px] font-[500] hover:text-primary transition-colors duration-150 ease-[cubic-bezier(0.4,0,0.2,1)]">Status</a>
+                <a href="#rdap" class="text-[14px] font-[500] hover:text-primary transition-colors duration-150 ease-[cubic-bezier(0.4,0,0.2,1)]">RDAP Data</a>
+                <a href="#faq" class="text-[14px] font-[500] hover:text-primary transition-colors duration-150 ease-[cubic-bezier(0.4,0,0.2,1)]">FAQ</a>
+            </nav>
+        </div>
+    </header>
+    <main class="flex-grow">
+        <section class="py-0 relative overflow-hidden flex flex-col items-center justify-center min-h-[600px] grad-1">
+            <div class="absolute inset-0 opacity-10 grad-3 mix-blend-multiply pointer-events-none"></div>
+            <div class="max-w-[1280px] w-full px-[32px] flex flex-col items-center text-center gap-5xl relative z-10">
+                <span class="inline-flex items-center justify-center px-[12px] py-[6px] rounded-full bg-[#F1EDFF] text-secondary text-[12px] font-[600] uppercase tracking-wider">Service Notice</span>
+                <h1 class="text-[64px] md:text-[80px] font-[400] leading-[1.1] tracking-[-4.8px] font-heading max-w-[800px]">This domain has been <span class="text-primary">retired</span>.</h1>
+                <p class="text-[18px] font-[500] leading-[28px] font-body text-text-muted max-w-[600px]">The domain <strong id="hero-domain-name" class="text-text-primary">...</strong> is no longer in active service and will not be renewed. Registration data is provided below for administrative transparency.</p>
+                <div class="flex gap-2xl mt-3xl"><a href="#rdap" class="inline-flex items-center justify-center h-[56px] px-[40px] rounded-full bg-text-primary text-surface border border-text-primary text-[14px] font-[500] hover:bg-primary-hover transition-colors duration-280 ease-[cubic-bezier(0.4,0,0.2,1)]">View Registry Data</a></div>
+            </div>
+        </section>
+        <section id="status" class="py-section flex flex-col items-center">
+            <div class="max-w-[1280px] w-full px-[32px] flex flex-col items-center text-center gap-2xl">
+                <h2 class="text-[48px] font-[400] leading-[53px] tracking-[-2.88px] font-heading">End of Lifecycle.</h2>
+                <p class="text-[24px] font-[400] leading-[26.5px] tracking-[-1.44px] font-heading text-text-muted max-w-[700px]">Following the conclusion of its intended project scope, this digital property is entering its grace period before returning to public availability.</p>
+            </div>
+        </section>
+        <section id="rdap" class="py-section flex flex-col items-center bg-surface">
+            <div class="max-w-[1280px] w-full px-[32px] flex flex-col gap-5xl">
+                <div class="flex flex-col gap-sm">
+                    <h5 class="text-[32px] font-[400] leading-[38.5px] tracking-[-1.92px] font-heading">Registration Output</h5>
+                    <p class="text-[14px] font-[500] font-body text-text-muted">Live query results from authoritative RDAP servers.</p>
+                </div>
+                <div class="bg-surface border border-text-primary rounded-card shadow-xl p-[32px] flex flex-col gap-5xl">
+                    <div class="flex flex-wrap items-center justify-between gap-2xl border-b border-surface-muted pb-[24px]">
+                        <div>
+                            <span class="text-[11.5px] font-[500] leading-[19.5px] tracking-[0.12px] uppercase text-text-muted">Handle</span>
+                            <h3 id="rdap-handle" class="text-[28px] font-[400] leading-[28px] font-heading mt-2xs">Querying...</h3>
+                        </div>
+                        <div class="flex gap-sm" id="rdap-status-container"><span class="inline-flex items-center justify-center px-[8px] py-[4px] rounded-full bg-surface text-text-primary border border-text-primary text-[11px] font-[500]">Loading State...</span></div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5xl">
+                        <div class="flex flex-col gap-xs"><span class="text-[11.5px] font-[500] leading-[19.5px] tracking-[0.12px] uppercase text-text-muted">Registrar</span><p id="rdap-registrar" class="text-[18px] font-[500] leading-[28px] font-heading">...</p></div>
+                        <div class="flex flex-col gap-xs"><span class="text-[11.5px] font-[500] leading-[19.5px] tracking-[0.12px] uppercase text-text-muted">DNSSEC</span><p id="rdap-dnssec" class="text-[18px] font-[500] leading-[28px] font-heading">...</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-section flex flex-col items-center">
+            <div class="max-w-[1280px] w-full px-[32px]">
+                <h5 class="text-[32px] font-[400] leading-[38.5px] tracking-[-1.92px] font-heading mb-5xl text-center md:text-left">Critical Dates</h5>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5xl">
+                    <article class="bg-surface rounded-[20px] p-[24px] flex flex-col gap-md shadow-sm border border-[#D3CFE5] hover:shadow-md transition-shadow duration-280"><svg class="w-[24px] h-[24px] text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg><h4 class="text-[19.5px] font-[700] leading-[21.5px] tracking-[-0.58px] font-heading">Registration</h4><p id="rdap-date-reg" class="text-[16px] font-[400] text-text-primary">Fetching...</p></article>
+                    <article class="bg-surface rounded-[20px] p-[24px] flex flex-col gap-md shadow-sm border border-[#D3CFE5] hover:shadow-md transition-shadow duration-280"><svg class="w-[24px] h-[24px] text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg><h4 class="text-[19.5px] font-[700] leading-[21.5px] tracking-[-0.58px] font-heading">Last Changed</h4><p id="rdap-date-changed" class="text-[16px] font-[400] text-text-primary">Fetching...</p></article>
+                    <article class="bg-surface rounded-[20px] p-[24px] flex flex-col gap-md shadow-sm border border-[#D3CFE5] hover:shadow-md transition-shadow duration-280"><svg class="w-[24px] h-[24px] text-danger" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><h4 class="text-[19.5px] font-[700] leading-[21.5px] tracking-[-0.58px] font-heading">Expiration</h4><p id="rdap-date-exp" class="text-[16px] font-[400] text-text-primary">Fetching...</p></article>
+                </div>
+            </div>
+        </section>
+        <section class="py-section flex flex-col items-center grad-4">
+            <div class="max-w-[1280px] w-full px-[32px] flex flex-col items-center text-center gap-2xl">
+                <h3 class="text-[28px] font-[400] leading-[28px] font-heading">Transfer & Release Policy</h3>
+                <p class="text-[16px] font-[400] font-body text-text-muted max-w-[800px]">This domain is currently locked to prevent unauthorized transfers during its retirement phase. Upon reaching the expiration date, it will enter the standard registry redemption and pending delete phases before becoming available for public registration through standard registrars. We do not facilitate direct private sales or early transfers.</p>
+            </div>
+        </section>
+        <section class="py-section flex flex-col items-center bg-surface border-t border-border">
+            <div class="max-w-[1280px] w-full px-[32px]">
+                <h5 class="text-[32px] font-[400] leading-[38.5px] tracking-[-1.92px] font-heading mb-5xl">Network Infrastructure</h5>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5xl">
+                    <div class="col-span-1 md:col-span-2 flex flex-col gap-md">
+                        <h6 class="text-[19.5px] font-[700] leading-[21.5px] tracking-[-0.58px] font-heading text-secondary">Authoritative Nameservers</h6>
+                        <ul id="rdap-nameservers" class="flex flex-col gap-sm mt-sm"><li class="text-[14px] font-[500] text-text-muted flex items-center gap-sm"><svg class="w-[16px] h-[16px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path></svg>Loading nameservers...</li></ul>
+                    </div>
+                    <div class="flex flex-col gap-md">
+                        <h6 class="text-[19.5px] font-[700] leading-[21.5px] tracking-[-0.58px] font-heading text-secondary">Contact Roles</h6>
+                        <div id="rdap-entities" class="flex flex-col gap-sm mt-sm"><span class="text-[14px] font-[500] text-text-muted">Loading entities...</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-section flex flex-col items-center">
+            <div class="max-w-[1280px] w-full px-[32px]">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-[64px]">
+                    <div class="flex flex-col gap-2xl justify-center"><h3 class="text-[28px] font-[400] leading-[28px] font-heading">Abuse Reporting</h3><p class="text-[16px] font-[400] text-text-muted">If this domain is currently involved in abusive practices, spam, or malicious activity despite being retired, please direct reports to the designated registrar abuse contact provided in the RDAP payload.</p></div>
+                    <div class="bg-surface rounded-[16px] p-[32px] border border-[#D3CFE5] flex flex-col gap-md shadow-sm"><span class="text-[11.5px] font-[500] uppercase text-text-muted tracking-[0.12px]">Registrar Abuse Contact</span><p id="rdap-abuse-email" class="text-[18px] font-[500] font-heading truncate text-text-primary">Not available</p><p id="rdap-abuse-phone" class="text-[14px] font-[400] text-text-primary">Not available</p></div>
+                </div>
+            </div>
+        </section>
+        <section class="py-0 h-[300px] md:h-[400px] w-full grad-2 relative overflow-hidden flex items-center justify-center"><div class="absolute inset-0 bg-primary opacity-20 mix-blend-multiply"></div><h2 class="relative z-10 text-[48px] font-[400] leading-[53px] tracking-[-2.88px] font-heading text-surface drop-shadow-lg text-center px-[32px]">End of Transmission.</h2></section>
+        <section id="faq" class="py-[40px] flex flex-col items-center bg-surface">
+            <div class="max-w-[1280px] w-full px-[32px] flex flex-col gap-5xl">
+                <h4 class="text-[24px] font-[400] leading-[26.5px] tracking-[-1.44px] font-heading text-center">Frequently Asked Questions</h4>
+                <div class="flex flex-col gap-[10px] max-w-[800px] mx-auto w-full">
+                    <details class="group bg-surface hover:bg-background border border-[#D3CFE5] rounded-[14px] overflow-hidden shadow-sm transition-colors duration-150"><summary class="cursor-pointer text-[18px] font-[500] font-heading text-secondary px-[24px] py-[16px] flex justify-between items-center outline-none">Can I buy this domain right now?<svg class="w-5 h-5 text-text-primary transition-transform duration-280 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></summary><div class="px-[24px] pb-[24px] pt-[16px] text-[14px] font-[400] text-text-primary border-t border-[#D3CFE5] bg-surface">No. This domain is running through its natural lifecycle and will eventually drop back to the public pool via standard registry processes. We do not entertain private offers.</div></details>
+                    <details class="group bg-surface hover:bg-background border border-[#D3CFE5] rounded-[14px] overflow-hidden shadow-sm transition-colors duration-150"><summary class="cursor-pointer text-[18px] font-[500] font-heading text-secondary px-[24px] py-[16px] flex justify-between items-center outline-none">When will it be available for registration?<svg class="w-5 h-5 text-text-primary transition-transform duration-280 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></summary><div class="px-[24px] pb-[24px] pt-[16px] text-[14px] font-[400] text-text-primary border-t border-[#D3CFE5] bg-surface">Refer to the "Expiration" date in the Critical Dates section above. Typically, a domain becomes available 30 to 75 days after expiration, depending on the specific Top-Level Domain (TLD) grace period policies.</div></details>
+                    <details class="group bg-surface hover:bg-background border border-[#D3CFE5] rounded-[14px] overflow-hidden shadow-sm transition-colors duration-150"><summary class="cursor-pointer text-[18px] font-[500] font-heading text-secondary px-[24px] py-[16px] flex justify-between items-center outline-none">Why is this page showing RDAP data?<svg class="w-5 h-5 text-text-primary transition-transform duration-280 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></summary><div class="px-[24px] pb-[24px] pt-[16px] text-[14px] font-[400] text-text-primary border-t border-[#D3CFE5] bg-surface">Registration Data Access Protocol (RDAP) is the successor to WHOIS. We display this data to provide clear, immediate transparency about the domain's current status and authoritative registrar contacts without requiring third-party lookup tools.</div></details>
+                </div>
+            </div>
+        </section>
+        <div class="py-[40px] flex flex-col items-center text-center px-[32px]"><p class="text-[11.5px] font-[500] leading-[19.5px] tracking-[0.12px] font-body text-text-muted max-w-[600px]">The information provided on this page is retrieved live from public RDAP servers. We do not guarantee the accuracy, completeness, or timeliness of the registry data. Use of this domain is subject to ICANN policies.</p></div>
+    </main>
+    <footer class="py-[80px] md:py-[120px] w-full flex flex-col items-center justify-center grad-5 text-surface relative overflow-hidden">
+        <div class="absolute inset-0 bg-text-primary opacity-90 mix-blend-multiply"></div>
+        <div class="max-w-[1280px] w-full px-[32px] relative z-10 flex flex-col gap-[64px] items-center text-center">
+            <div class="flex flex-col gap-2xl items-center"><span class="text-[32px] font-[400] leading-[38.5px] tracking-[-1.92px] font-heading text-surface">Status: Inactive</span><p class="text-[16px] font-[400] text-surface max-w-[400px] opacity-90">This page serves as a final placeholder. No further updates will be made.</p></div>
+            <div class="w-full h-px bg-surface opacity-20"></div>
+            <div class="flex flex-col md:flex-row justify-between w-full items-center gap-2xl"><span class="text-[14px] font-[500] text-surface font-heading" id="footer-domain-name">domain.com</span><span class="text-[11.5px] font-[500] leading-[19.5px] tracking-[0.12px] text-surface opacity-90">Generated automatically upon retirement.</span></div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const domain = (window.location.hostname || 'example.com').toLowerCase().replace(/^www\./, '');
+            const el = (id) => document.getElementById(id);
+            const setT = (id, txt) => { const e = el(id); if (e) e.innerText = txt; };
+
+            setT('nav-domain-name', domain);
+            setT('hero-domain-name', domain);
+            setT('footer-domain-name', domain);
+
+            fetch('/api/rdap')
+                .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
+                .then(data => populateRdapData(data))
+                .catch(() => handleRdapError());
+
+            function populateRdapData(d) {
+                if (!d.found) { handleRdapError(); return; }
+                setT('rdap-handle', d.handle || 'Unknown');
+
+                const sc = el('rdap-status-container');
+                if (sc) { sc.innerHTML = ''; (d.status || []).forEach(s => { const b = document.createElement('span'); b.className = 'inline-flex items-center justify-center px-[8px] py-[4px] rounded-full bg-background text-text-primary border border-text-primary text-[11px] font-[500] capitalize'; b.innerText = s; sc.appendChild(b); }); }
+                setT('rdap-registrar', d.registrar || 'Unknown');
+                setT('rdap-dnssec', d.dnssec || 'Unsigned');
+
+                const fmt = (s) => s ? new Date(s).toLocaleDateString('en-US', {year:'numeric',month:'short',day:'numeric'}) : 'N/A';
+                setT('rdap-date-reg', fmt(d.dates?.registration));
+                setT('rdap-date-changed', fmt(d.dates?.lastChanged));
+                setT('rdap-date-exp', fmt(d.dates?.expiration));
+
+                const ns = el('rdap-nameservers');
+                if (ns) { ns.innerHTML = ''; (d.nameservers || []).forEach(n => { const li = document.createElement('li'); li.className = 'text-[14px] font-[500] text-text-primary flex items-center gap-sm'; li.innerHTML = `<svg class="w-[16px] h-[16px] text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path></svg> ${n}`; ns.appendChild(li); }); if (!ns.children.length) ns.innerHTML = '<li class="text-[14px] text-text-muted">No nameservers found.</li>'; }
+
+                const ent = el('rdap-entities');
+                if (ent) { ent.innerHTML = ''; const roles = new Set(); (d.entities || []).forEach(e => (e.roles || []).forEach(r => roles.add(r))); if (!roles.size) ent.innerHTML = '<span class="text-[14px] text-text-muted">No entities found.</span>'; Array.from(roles).forEach(r => { const s = document.createElement('span'); s.className = 'inline-flex self-start items-center px-[8px] py-[4px] rounded-full bg-surface-muted text-text-primary text-[11px] font-[500] capitalize'; s.innerText = r; ent.appendChild(s); }); }
+
+                setT('rdap-abuse-email', d.abuse?.email || 'Not available');
+                setT('rdap-abuse-phone', d.abuse?.phone || 'Not available');
+            }
+
+            function handleRdapError() {
+                setT('rdap-handle', 'Data Unavailable');
+                const sc = el('rdap-status-container'); if (sc) sc.innerHTML = '<span class="inline-flex items-center justify-center px-[8px] py-[4px] rounded-full bg-danger text-surface text-[11px] font-[500]">Lookup Failed</span>';
+                ['rdap-registrar','rdap-dnssec','rdap-date-reg','rdap-date-changed','rdap-date-exp'].forEach(id => setT(id, 'N/A'));
+                const ns = el('rdap-nameservers'); if (ns) ns.innerHTML = '<li class="text-[14px] text-text-muted">Query failed or data restricted.</li>';
+                const ent = el('rdap-entities'); if (ent) ent.innerHTML = '<span class="text-[14px] text-text-muted">Query failed.</span>';
+            }
+        });
+    </script>
+</body>
+</html>
