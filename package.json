@@ -1,1 +1,18 @@
-{"name":"retired","private":true,"type":"module","scripts":{"dev":"wrangler dev","deploy":"wrangler deploy","test":"bun test"},"dependencies":{"elysia":"^1.4.0"}}
+{
+  "name": "retired",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "node --test --experimental-strip-types"
+  },
+  "dependencies": {
+    "elysia": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "wrangler": "^3.0.0"
+  }
+}

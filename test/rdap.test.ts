@@ -1,4 +1,7 @@
-import { describe, expect, test } from 'bun:test'
+import { describe, test } from 'node:test'
+import assert from 'node:assert/strict'
+import { renderHtml } from '../src/template.ts'
+import type { RdapResult } from '../src/rdap.ts'
 
 function buildNormalizer() {
   function vcardProp(vcardArray: unknown[], key: string): string | null {
@@ -84,25 +87,65 @@ const { vcardProp } = buildNormalizer()
 describe('RDAP normalization', () => {
   test('maps handle, status, dnssec', () => {
     const r = normalize(fixture)
-    expect(r.dnssec).toBe('Signed')
-    expect(r.statusArr).toEqual(['clientTransferProhibited'])
+    assert.equal(r.dnssec, 'Signed')
+    assert.deepEqual(r.statusArr, ['clientTransferProhibited'])
   })
   test('extracts registrar, abuse, dates, nameservers', () => {
     const r = normalize(fixture)
-    expect(r.registrarName).toBe('Test Registrar LLC')
-    expect(r.abuseEmail).toBe('abuse@example.com')
-    expect(r.abusePhone).toBe('+1-555-0100')
-    expect(r.dates.registration).toBe('2010-01-01T00:00:00Z')
-    expect(r.dates.expiration).toBe('2025-06-01T00:00:00Z')
-    expect(r.dates.lastChanged).toBe('2024-03-15T00:00:00Z')
-    expect(r.ns).toEqual(['ns1.example.com', 'ns2.example.com'])
+    assert.equal(r.registrarName, 'Test Registrar LLC')
+    assert.equal(r.abuseEmail, 'abuse@example.com')
+    assert.equal(r.abusePhone, '+1-555-0100')
+    assert.equal(r.dates.registration, '2010-01-01T00:00:00Z')
+    assert.equal(r.dates.expiration, '2025-06-01T00:00:00Z')
+    assert.equal(r.dates.lastChanged, '2024-03-15T00:00:00Z')
+    assert.deepEqual(r.ns, ['ns1.example.com', 'ns2.example.com'])
   })
   test('vcardProp extracts fn', () => {
     const v: unknown[] = ["vcard", [["fn", {}, "text", "Alice"]], {}]
-    expect(vcardProp(v, 'fn')).toBe('Alice')
+    assert.equal(vcardProp(v, 'fn'), 'Alice')
   })
   test('unsigned when delegationSigned false', () => {
     const r = normalize({ ...fixture, secureDNS: { delegationSigned: false } })
-    expect(r.dnssec).toBe('Unsigned')
+    assert.equal(r.dnssec, 'Unsigned')
+  })
+})
+
+describe('SSR template rendering', () => {
+  test('renders full html with rdap details without client-side fetch', () => {
+    const mockData: RdapResult = {
+      domain: 'expy.my.id',
+      tld: 'id',
+      rdapServer: 'rdap.org',
+      handle: '17773188_DOMAIN_ID-ID',
+      status: ['client transfer prohibited'],
+      registrar: 'PT JC Indonesia',
+      dnssec: 'Unsigned',
+      dates: {
+        registration: '2025-11-21T09:48:32Z',
+        expiration: '2027-11-21T23:59:59Z',
+        lastChanged: '2026-03-22T09:20:50Z'
+      },
+      nameservers: ['emma.ns.cloudflare.com', 'harvey.ns.cloudflare.com'],
+      entities: [
+        {
+          roles: ['registrar'],
+          name: 'PT JC Indonesia',
+          emails: ['sales@resellercamp.id'],
+          phones: ['tel:+6282141570000']
+        }
+      ],
+      abuse: { email: null, phone: null },
+      found: true,
+      error: null
+    }
+
+    const html = renderHtml('expy.my.id', mockData)
+    assert.ok(html.includes('expy.my.id'))
+    assert.ok(html.includes('17773188_DOMAIN_ID-ID'))
+    assert.ok(html.includes('PT JC Indonesia'))
+    assert.ok(html.includes('client transfer prohibited'))
+    assert.ok(html.includes('emma.ns.cloudflare.com'))
+    assert.ok(html.includes('Nov 21, 2025'))
+    assert.ok(!html.includes('/api/rdap'))
   })
 })
