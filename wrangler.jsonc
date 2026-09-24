@@ -3,8 +3,15 @@
   "name": "retired",
   "main": "src/index.ts",
   "compatibility_date": "2025-06-01",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "assets": {
     "directory": "public",
+    "binding": "ASSETS",
     "run_worker_first": true
+  },
+  "vars": {
+    "BUN_VERSION": "1.4.2"
   }
 }
