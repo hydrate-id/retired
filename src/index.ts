@@ -1,4 +1,5 @@
 import { Elysia } from 'elysia'
+import { html } from '@elysiajs/html'
 import { CloudflareAdapter } from 'elysia/adapter/cloudflare-worker'
 import { fetchRdap, type RdapResult } from './rdap'
 import { renderHtml } from './template'
@@ -30,6 +31,7 @@ function invalidDomainResult(domain: string): RdapResult {
 }
 
 const app = new Elysia({ adapter: CloudflareAdapter })
+  .use(html())
   .get('/api/rdap', async ({ request, query }) => {
     const domain = extractDomain(request, query.domain as string | undefined)
     if (!/^[a-z0-9][a-z0-9.-]*\.[a-z]{2,}$/.test(domain)) {
