@@ -1,6 +1,6 @@
 import { Elysia } from 'elysia'
 import { html } from '@elysiajs/html'
-import { CloudflareAdapter } from 'elysia/adapter/cloudflare-worker'
+import { WebStandardAdapter } from 'elysia/adapter/web-standard'
 import { fetchRdap, type RdapResult } from './rdap'
 import { renderHtml } from './template'
 
@@ -8,7 +8,7 @@ function extractDomain(request: Request, queryDomain?: string): string {
   if (queryDomain && queryDomain.trim()) {
     return queryDomain.trim().toLowerCase().replace(/^www\./, '').split(':')[0]
   }
-  const host = request.headers.get('host') || new URL(request.url).hostname
+  const host = request.headers.get('x-forwarded-host') || request.headers.get('host') || new URL(request.url).hostname
   return host.toLowerCase().replace(/^www\./, '').split(':')[0]
 }
 
@@ -30,7 +30,7 @@ function invalidDomainResult(domain: string): RdapResult {
   }
 }
 
-const app = new Elysia({ adapter: CloudflareAdapter })
+const app = new Elysia({ adapter: WebStandardAdapter })
   .use(html())
   .get('/api/rdap', async ({ request, query }) => {
     const domain = extractDomain(request, query.domain as string | undefined)
@@ -56,4 +56,8 @@ const app = new Elysia({ adapter: CloudflareAdapter })
   })
   .compile()
 
-export default app
+export const GET = (req: Request) => app.fetch(req)
+export const POST = (req: Request) => app.fetch(req)
+export const HEAD = (req: Request) => app.fetch(req)
+export const OPTIONS = (req: Request) => app.fetch(req)
+export { app }

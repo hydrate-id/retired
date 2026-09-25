@@ -1,5 +1,3 @@
-import type { Infer } from 'elysia'
-
 interface IanaEntry { tlds: string[]; urls: string[] }
 interface IanaBootstrap { services: IanaEntry[] }
 
@@ -10,7 +8,7 @@ async function getBootstrap(): Promise<Map<string, string>> {
   if (bootstrapMap) return bootstrapMap
   if (bootstrapFailed) return new Map()
   try {
-    const res = await fetch('https://data.iana.org/rdap/dns.json', { cf: { cacheTtl: 86400 } })
+    const res = await fetch('https://data.iana.org/rdap/dns.json')
     if (!res.ok) throw new Error(`bootstrap fetch failed: ${res.status}`)
     const json: IanaBootstrap = await res.json()
     bootstrapMap = new Map()
@@ -72,7 +70,7 @@ export async function fetchRdap(domain: string): Promise<RdapResult> {
 
   let raw: unknown
   try {
-    const res = await fetch(url, { headers: { accept: 'application/rdap+json', 'user-agent': 'retired-worker/1.0' }, cf: { cacheTtl: 3600 } })
+    const res = await fetch(url, { headers: { accept: 'application/rdap+json', 'user-agent': 'retired-worker/1.0' } })
     if (res.status === 404) {
       return { domain: clean, tld, rdapServer: server, handle: null, status: [], registrar: null, dnssec: 'Unsigned', dates: { registration: null, expiration: null, lastChanged: null }, nameservers: [], entities: [], abuse: { email: null, phone: null }, found: false, error: 'domain not found' }
     }

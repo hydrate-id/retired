@@ -43,11 +43,15 @@ Setelah migrasi selesai, Anda dapat mendaftarkan domain Anda ke instance publik 
    - **Subdomain TIDAK didukung** (misalnya `blog.example.com` atau `app.mybrand.id` akan ditolak).
 
 3. **Konfigurasi DNS**:
-   Arahkan DNS domain Anda menggunakan `CNAME` ke target Vercel:
-   ```text
-   CNAME  @  cname.vercel-dns.com.
-   ```
-   *(Atau gunakan ALIAS/ANAME jika registrar Anda tidak mendukung CNAME flattening pada root apex domain).*
+   Arahkan DNS domain Anda menggunakan salah satu opsi berikut:
+   - **CNAME (dengan flattening / ALIAS / ANAME)**:
+     ```text
+     CNAME  @  cname.vercel-dns.com.
+     ```
+   - **A Record**:
+     ```text
+     A      @  76.76.21.21
+     ```
 
 4. **Kirimkan Pull Request**:
    Buka PR ke repository ini. Setelah PR di-merge, domain Anda akan otomatis diverifikasi dan menampilkan halaman Retired dengan data RDAP yang sesuai.

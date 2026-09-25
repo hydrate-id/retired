@@ -1,0 +1,5 @@
+# List of parked domains for Retired
+# Rules: Apex domains (TLD or coTLD/ccTLD) only, one per line. Subdomains are not allowed.
+
+expy.my.id
+tsaqaf.my.id

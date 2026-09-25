@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
+    "build": "bun build src/index.ts --target node --outfile api/index.js --packages external",
+    "sync:domains": "bun run scripts/sync-domains.ts",
     "test": "bun test"
   },
   "dependencies": {

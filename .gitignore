@@ -4,3 +4,5 @@ dist/
 *.wasm
 .env
 .env.local
+.vercel
+.env*
