@@ -39,7 +39,7 @@ const app = new Elysia({ adapter: CloudflareAdapter })
     }
     return fetchRdap(domain)
   })
-  .get('/', async ({ request, query, set }) => {
+  .get('/', async ({ request, query }) => {
     const domain = extractDomain(request, query.domain as string | undefined)
     let rdap: RdapResult
     if (!/^[a-z0-9][a-z0-9.-]*\.[a-z]{2,}$/.test(domain)) {
@@ -48,8 +48,11 @@ const app = new Elysia({ adapter: CloudflareAdapter })
       rdap = await fetchRdap(domain)
     }
 
-    set.headers['content-type'] = 'text/html; charset=utf-8'
-    return renderHtml(domain, rdap)
+    return new Response(renderHtml(domain, rdap), {
+      headers: {
+        'content-type': 'text/html; charset=utf-8'
+      }
+    })
   })
   .compile()
 
