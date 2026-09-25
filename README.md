@@ -43,10 +43,10 @@ Setelah migrasi selesai, Anda dapat mendaftarkan domain Anda ke instance publik 
    - **Subdomain TIDAK didukung** (misalnya `blog.example.com` atau `app.mybrand.id` akan ditolak).
 
 3. **Konfigurasi DNS**:
-   Arahkan DNS domain Anda menggunakan salah satu opsi berikut:
-   - **CNAME (dengan flattening / ALIAS / ANAME)**:
+   Arahkan DNS domain Anda menggunakan salah satu opsi berikut (Proxy status: **DNS only / Disabled**):
+   - **CNAME (dengan CNAME Flattening / ALIAS / ANAME)**:
      ```text
-     CNAME  @  cname.vercel-dns.com.
+     CNAME  @  329506c17e6648b1.vercel-dns-017.com.
      ```
    - **A Record**:
      ```text
