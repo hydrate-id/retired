@@ -20,11 +20,11 @@ export const RdapSection = ({ data }: RdapSectionProps) => {
         </div>
         <div class="bg-surface border border-border rounded-card shadow-xl p-[32px] flex flex-col gap-5xl">
           <div class="flex flex-wrap items-center justify-between gap-2xl border-b border-surface-muted pb-[24px]">
-            <div>
+            <div class="min-w-0 max-w-full">
               <span class="text-[11.5px] font-[500] leading-[19.5px] tracking-[0.12px] uppercase text-text-muted">Handle</span>
-              <h3 id="rdap-handle" class="text-[28px] font-[400] leading-[28px] font-heading mt-2xs">{handle}</h3>
+              <h3 id="rdap-handle" class="text-[20px] sm:text-[28px] font-[400] leading-tight font-heading mt-2xs break-all">{handle}</h3>
             </div>
-            <div class="flex gap-sm" id="rdap-status-container">
+            <div class="flex flex-wrap gap-sm" id="rdap-status-container">
               {!isFound ? (
                 <span class="inline-flex items-center justify-center px-[8px] py-[4px] rounded-full bg-danger text-surface text-[11px] font-[500]">Lookup Failed</span>
               ) : data.status && data.status.length > 0 ? (

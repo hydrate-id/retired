@@ -91,11 +91,11 @@
                 </div>
                 <div class="bg-surface border border-border rounded-card shadow-xl p-[32px] flex flex-col gap-5xl">
                     <div class="flex flex-wrap items-center justify-between gap-2xl border-b border-surface-muted pb-[24px]">
-                        <div>
+                        <div class="min-w-0 max-w-full">
                             <span class="text-[11.5px] font-[500] leading-[19.5px] tracking-[0.12px] uppercase text-text-muted">Handle</span>
-                            <h3 id="rdap-handle" class="text-[28px] font-[400] leading-[28px] font-heading mt-2xs">Querying...</h3>
+                            <h3 id="rdap-handle" class="text-[20px] sm:text-[28px] font-[400] leading-tight font-heading mt-2xs break-all">Querying...</h3>
                         </div>
-                        <div class="flex gap-sm" id="rdap-status-container"><span class="inline-flex items-center justify-center px-[8px] py-[4px] rounded-full bg-surface text-text-primary border border-border text-[11px] font-[500]">Loading State...</span></div>
+                        <div class="flex flex-wrap gap-sm" id="rdap-status-container"><span class="inline-flex items-center justify-center px-[8px] py-[4px] rounded-full bg-surface text-text-primary border border-border text-[11px] font-[500]">Loading State...</span></div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5xl">
                         <div class="flex flex-col gap-xs"><span class="text-[11.5px] font-[500] leading-[19.5px] tracking-[0.12px] uppercase text-text-muted">Registrar</span><p id="rdap-registrar" class="text-[18px] font-[500] leading-[28px] font-heading">...</p></div>
